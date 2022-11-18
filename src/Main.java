@@ -6,10 +6,9 @@ public class Main {
         BufferedReader br = new BufferedReader(new FileReader("input.txt"));
         PrintWriter out = new PrintWriter(new FileWriter("output.txt"));
         String line;
+        RegexDate rd = new RegexDate();
         while ((line = br.readLine()) != null) {
-            if (Pattern.matches("^(30|31|([0-2][1-9]))" +
-                    "\\/(12|11|10|(0[1-9]))" +
-                    "\\/((1000)|(0\\d{2}[1-9])|(0\\d[1-9]\\d)|(0[1-9]\\d\\d))$", line)) {
+            if (rd.isOkey(line)) {
                 out.println(line + " - YES");
             } else {
                 out.println(line + " - NO");
